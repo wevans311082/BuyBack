@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<h1>Calculator</h1>
+{% if posted == "TRUE" %}
+<h2>Buy Back Value = {{ value }}</h2>
+<h3>Items Found</h3>
+{% for x in items_found %}
+        {{ x }}
+
+{% endfor %}
+<table>
+<tr>
+{% for item in items_found %}
+    <td>{{ item }}</td>
+    {% if forloop.counter|divisibleby:2 %}
+</tr>
+<tr>
+    {% endif %}
+{% endfor %}
+    </tr>
+</table>
+
+{% endif %}
+<br>
+<form action = "" method = "post">
+    {% csrf_token %}
+    {{form }}
+    <input type="submit" value=Submit>
+</form>
+
+
+
+</body>
+</html>
